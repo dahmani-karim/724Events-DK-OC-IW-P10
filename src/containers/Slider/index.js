@@ -1,31 +1,28 @@
 import React, { useEffect, useState } from "react";
 import { useData } from "../../contexts/DataContext";
 import { getMonth } from "../../helpers/Date";
-
 import "./style.scss";
 
 const Slider = () => {
-  const { data } = useData();
-  const [index, setIndex] = useState(0);
+  const { data } = useData()
+  const [index, setIndex] = useState(0)
   const byDateDesc = data?.focus.sort((evtA, evtB) =>
     new Date(evtA.date) < new Date(evtB.date) ? -1 : 1
-  );
+  )
 
   // Déclaration d'une variable pour stocker le delay automatique du slider
   let timoutId
 
   // Récupération du nombre total de slides
-  const totalSlides = byDateDesc?.length;
+  const totalSlides = byDateDesc?.length
 
   /* Fonction pour passer à la slide suivante
   Ajout du "-1" sur la longueur pour éviter l'index out of range
   Récupération de la valeur dans timoutId */
   const nextCard = () => {
-    timoutId = setTimeout(
-      () => setIndex(index < totalSlides - 1 ? index + 1 : 0),
-      5000
-    );
-  };
+    timoutId = setTimeout(() =>
+    setIndex(index < totalSlides - 1 ? index + 1 : 0),5000
+  )}
 
   // Gestion du click sur les boutons radio
   const handleInputClicked = (radioIdx) => {
@@ -34,8 +31,8 @@ const Slider = () => {
   }
 
   useEffect(() => {
-    nextCard();
-  });
+    nextCard()
+  })
 
   return (
     <div className="SlideCardList">
@@ -72,7 +69,7 @@ const Slider = () => {
         </React.Fragment>
       ))}
     </div>
-  );
-};
+  )
+}
 
 export default Slider;
