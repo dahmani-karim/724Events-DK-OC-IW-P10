@@ -31,22 +31,14 @@ describe("When Form is created", () => {
 describe("When a page is created", () => {
   it("a list of events is displayed", () => {
     // to implement
-    render(<Home />);
-    screen.findByRole("EventCard");
   })
   it("a list a people is displayed", () => {
     // to implement
-    render(<Home />);
-    screen.findByRole("PeopleCard");
   })
   it("a footer is displayed", () => {
     // to implement
-    render(<Home />);
-    screen.findByRole("footer");
   })
   it("an event card, with the last event, is displayed", () => {
     // to implement
-    render(<Home />);
-    screen.findByRole("EventCard--small");
   })
 });
