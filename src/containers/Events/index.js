@@ -41,7 +41,7 @@ const EventList = () => {
     <>
       {error && <div>An error occured</div>}
       {data === null ? (
-        "loading"
+        "An error occured"
       ) : (
         <>
           <h3 className="SelectTitle">Catégories</h3>
