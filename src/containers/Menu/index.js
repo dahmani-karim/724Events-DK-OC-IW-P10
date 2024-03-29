@@ -3,7 +3,7 @@ import Button from "../../components/Button";
 import Logo from "../../components/Logo";
 
 import "./style.scss";
-
+// Ajout des liens pour les ancres
 const Menu = () => (
   <nav>
     <Logo />

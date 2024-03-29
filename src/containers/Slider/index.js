@@ -27,7 +27,7 @@ const Slider = () => {
   // Gestion du click sur les boutons radio
   const handleInputClicked = (radioIdx) => {
     setIndex(radioIdx)
-    clearTimeout(timoutId)
+    clearTimeout(timoutId) // Reset du timeout en cas de click sur les boutons radio
   }
 
   useEffect(() => {
@@ -61,7 +61,7 @@ const Slider = () => {
                   type="radio"
                   name="radio-button"
                   checked={index === radioIdx} // gestion de l'indicateur radio checked ou non en fonction de l'index
-                  onChange={() => handleInputClicked(radioIdx)}
+                  onChange={() => handleInputClicked(radioIdx)} // gestion du click sur les boutons radio
                 />
               ))}
             </div>

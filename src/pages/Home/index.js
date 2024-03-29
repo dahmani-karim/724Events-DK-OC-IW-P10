@@ -13,9 +13,9 @@ import Modal from "../../containers/Modal";
 import { useData } from "../../contexts/DataContext";
 
 const Page = () => {
-  const {last} = useData()
+  const {last} = useData() // on récupère la dernière prestation
   return <>
-    <header>
+    <header id="header">
       <Menu />
     </header>
     <main>
@@ -116,13 +116,13 @@ const Page = () => {
     <footer className="row">
       <div className="col presta">
         <h3>Notre derniére prestation</h3>
-        { last && (
+        { last && ( // si last existe alors on affiche le composant EventCard avec les props suivantes
             <EventCard
               imageSrc={last.cover}
               title={last.title}
               date={new Date(last.date)}
               small
-              label={last.type} // type à la place de boom
+              label={last.type} // type à la place du mot boom
             />
         )}
       </div>

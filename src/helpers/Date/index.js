@@ -12,5 +12,5 @@ export const MONTHS = {
   11: "novembre",
   12: "décembre",
 };
-
+// Correction du calcul du mois +1 car index commence à 0
 export const getMonth = (date) => MONTHS[date.getMonth()+1];
