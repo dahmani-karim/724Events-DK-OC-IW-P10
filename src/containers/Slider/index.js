@@ -6,6 +6,7 @@ import "./style.scss";
 const Slider = () => {
   const { data } = useData()
   const [index, setIndex] = useState(0)
+  // Création d'un tableau trié par date décroissante avec la méthode sort sur le tableau focus
   const byDateDesc = data?.focus.sort((evtA, evtB) =>
     new Date(evtA.date) < new Date(evtB.date) ? -1 : 1
   )
@@ -24,7 +25,7 @@ const Slider = () => {
     setIndex(index < totalSlides - 1 ? index + 1 : 0),5000
   )}
 
-  // Gestion du click sur les boutons radio
+  // Fontcion de gestion du click sur les boutons radio
   const handleInputClicked = (radioIdx) => {
     setIndex(radioIdx)
     clearTimeout(timoutId) // Reset du timeout en cas de click sur les boutons radio
@@ -38,6 +39,7 @@ const Slider = () => {
     <div className="SlideCardList">
       {byDateDesc?.map((event, idx) => (
         <React.Fragment key={`${byDateDesc[idx].title}`}>
+        {/* Remplacement de la balise vide par React.Fragment et ajout de la clé pour éviter les erreurs de rendu et l'erreur console de key unique */}
           <div
             key={event.title}
             className={`SlideCard SlideCard--${
@@ -57,7 +59,7 @@ const Slider = () => {
             <div className="SlideCard__pagination">
               {byDateDesc.map((_, radioIdx) => (
                 <input
-                  key={{radioIdx}}
+                  key={`${byDateDesc[radioIdx].title}`} // Utilisation de la clé unique pour éviter les erreurs de rendu
                   type="radio"
                   id={`radio${radioIdx}`}
                   name="radio-button"

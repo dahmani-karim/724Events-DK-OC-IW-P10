@@ -22,6 +22,7 @@ describe("When Form is created", () => {
       );
       await screen.findByText("En cours");
       await waitFor(() => screen.findByText("Message envoyé !"), {timeout: 3000,});
+      // Ajout de la gestion du timeout pour éviter les erreurs de test avec le message de succès grâce à waitFor
     });
   });
 
